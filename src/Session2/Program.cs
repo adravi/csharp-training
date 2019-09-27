@@ -1,5 +1,7 @@
 ﻿using System;
 
+
+
 namespace Session2
 {
     class Program
@@ -18,17 +20,62 @@ namespace Session2
             Print until the number received is equals to exactly (2x + 1)
          * 
          */
+
+
+
         private static int firstNumber;
+
+
+
         static void Main(string[] args)
         {
-            var randomNumber = 10; // TODO: Change it to random           
-            // Put this call inside a cycle
-            DisplaySequence(randomNumber);
-        }
-        private static void DisplaySequence(int number)
-        {
+            var randomGenerator = new Random();
+            int randomNumber;
+
+            do
+            {
+                randomNumber = randomGenerator.Next(1, 10);
+
+                if (firstNumber == 0)
+                {
+                    firstNumber = randomNumber;
+                }
+
+                DisplaySequence(randomNumber);
+
+            } while (randomNumber != (8));
 
         }
+
+
+
+        private static void DisplaySequence(int number)
+        {
+            
+            if (number % 2 == 0)
+            {
+                // even
+                Console.Write("\n" + number + " : ");
+                    
+                for (int i = 0; i < number; i++)
+                {                        
+                    Console.Write("*");
+                }
+                    
+            }
+            else
+            {
+                // odd
+                Console.Write("\n" + number + " : ");
+
+                for (int i = 0; i < number; i++)
+                {
+                    Console.Write("+");
+                }
+                    
+            }
+            
+            
+        }
     }
-}
 }
