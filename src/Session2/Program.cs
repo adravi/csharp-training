@@ -20,12 +20,8 @@ namespace Session2
             Print until the number received is equals to exactly (2x + 1)
          * 
          */
-
-
-
+                 
         private static int firstNumber;
-
-
 
         static void Main(string[] args)
         {
@@ -44,14 +40,10 @@ namespace Session2
                 DisplaySequence(randomNumber);
 
             } while (randomNumber != (8));
-
         }
-
-
-
+                
         private static void DisplaySequence(int number)
-        {
-            
+        {            
             if (number % 2 == 0)
             {
                 // even
@@ -60,8 +52,7 @@ namespace Session2
                 for (int i = 0; i < number; i++)
                 {                        
                     Console.Write("*");
-                }
-                    
+                }                    
             }
             else
             {
@@ -71,11 +62,8 @@ namespace Session2
                 for (int i = 0; i < number; i++)
                 {
                     Console.Write("+");
-                }
-                    
+                }                    
             }
-            
-            
         }
     }
 }

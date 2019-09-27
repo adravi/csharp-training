@@ -28,8 +28,6 @@ namespace Session1
             // Last one = Size - 1
             var namedWords = new [] { "zero", "one" };
             Console.WriteLine(namedWords[1]);
-
-
         }
     }
 }
