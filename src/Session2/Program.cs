@@ -36,33 +36,25 @@ namespace Session2
                 {
                     firstNumber = randomNumber;
                 }
-
+                Console.Write("\n" + randomNumber + " : ");
                 DisplaySequence(randomNumber);
 
             } while (randomNumber != (8));
+            
         }
                 
         private static void DisplaySequence(int number)
         {            
-            if (number % 2 == 0)
+            for (int i = 0; i < number; i++)
             {
-                // even
-                Console.Write("\n" + number + " : ");
-                    
-                for (int i = 0; i < number; i++)
-                {                        
+                if(number % 2 ==0)
+                {
                     Console.Write("*");
-                }                    
-            }
-            else
-            {
-                // odd
-                Console.Write("\n" + number + " : ");
-
-                for (int i = 0; i < number; i++)
+                }
+                else
                 {
                     Console.Write("+");
-                }                    
+                }
             }
         }
     }
