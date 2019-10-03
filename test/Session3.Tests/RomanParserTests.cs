@@ -18,7 +18,7 @@ namespace Session3.Tests
         }
 
         [Fact]
-        public void RomanToInt_ReturnRightValue()
+        public void RomanToInt_ReturnsRightValue()
         {
             // Given
             var parser = new RomanParser();            
