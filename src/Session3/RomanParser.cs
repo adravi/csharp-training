@@ -1,54 +1,56 @@
-﻿using System;
-
-namespace Session3
+﻿namespace Session3
 {
     public class RomanParser
     {
         public int RomanToInt(string romanNumber)
         {
-            // Get the value of first symbol
-            int firstSymbol; // TODO: Make the appropriate calculation!
+            var sum = 0;
+            var firstSymbol = romanNumber[0];
 
-            // First value
-            int sum = -1; // TODO: Initialize sum with the right value!
+            // Get the value of first symbol
+            sum += EvalSymbol('z', firstSymbol);
 
             // The first previous is first symbol ever
-            int prev; // TODO: Initialize the value of prev!
+            var prev = firstSymbol;
 
             // Start iterate the roman number, from the second symbol
-            // TODO: Start the value of i on the appropriate value!
-            for (int i = -1; i < romanNumber.Length; i++)
+            for (var i = 1; i < romanNumber.Length; i++)
             {
-                char symbol = romanNumber[i];
-                sum += EvalSymbol('z', 'z'); // TODO: Make the call with the appropriate values!
+                var symbol = romanNumber[i];
+                sum += EvalSymbol(prev, symbol);
             }
 
             return sum;
         }
 
-        private int EvalSymbol(char prev, char curr)
+        private static int EvalSymbol(char prev, char current)
         {
             var val = 0;
 
-            // TODO: Build the switch case statement
-            //switch (curr)
-            //{
-            //    case 'I':
-            //        // Action
-            //        if (prev.Equals('z'))
-            //        {
-                        // TODO: Update sum accordingly
-                        // sum += -1;
-            //        }
-            //        else
-            //        {
-
-            //        }
-            //        break;
-            //    // ... // TODO: Finish the cases
-            //    default:
-            //        break;
-            //}
+            switch (current)
+            {
+                case 'I':
+                    val = 1;
+                    break;
+                case 'V':
+                    val = prev.Equals('I') ? 3 : 5;
+                    break;
+                case 'X':
+                    val = val.Equals('I') ? 8 : 10;
+                    break;
+                case 'L':
+                    val = prev.Equals('X') ? 30 : 50;
+                    break;
+                case 'C':
+                    val = prev.Equals('X') ? 80 : 100;
+                    break;
+                case 'D':
+                    val = prev.Equals('C') ? 300 : 500;
+                    break;
+                case 'M':
+                    val = prev.Equals('C') ? 800 : 1000;
+                    break;
+            }
 
             return val;
         }
