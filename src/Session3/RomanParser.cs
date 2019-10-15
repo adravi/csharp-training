@@ -18,6 +18,7 @@
             {
                 var symbol = romanNumber[i];
                 sum += EvalSymbol(prev, symbol);
+                prev = symbol;
             }
 
             return sum;
