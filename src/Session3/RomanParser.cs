@@ -6,24 +6,26 @@ namespace Session3
     {
         public int RomanToInt(string romanNumber)
         {
-            // Get the value of first symbol
-            int firstSymbol; // TODO: Make the appropriate calculation!
-
-            // First value
-            int sum = -1; // TODO: Initialize sum with the right value!
+           
+            var firstSymbol = romanNumber[0]; 
+                        
+            var sum = 0; // TODO: Initialize sum with the right value!
 
             // The first previous is first symbol ever
-            int prev; // TODO: Initialize the value of prev!
-
+            var prev = firstSymbol; // TODO: Initialize the value of prev!
+            sum += EvalSymbol('x', firstSymbol);
+            Console.WriteLine(sum);
             // Start iterate the roman number, from the second symbol
             // TODO: Start the value of i on the appropriate value!
-            for (int i = -1; i < romanNumber.Length; i++)
+            for (int i = 1; i < romanNumber.Length; i++)
             {
                 char symbol = romanNumber[i];
-                sum += EvalSymbol('z', 'z'); // TODO: Make the call with the appropriate values!
+                sum += EvalSymbol(prev, symbol); // TODO: Make the call with the appropriate values!   
+                prev = symbol;
             }
 
             return sum;
+            
         }
 
         private int EvalSymbol(char prev, char curr)
@@ -31,24 +33,83 @@ namespace Session3
             var val = 0;
 
             // TODO: Build the switch case statement
-            //switch (curr)
-            //{
-            //    case 'I':
-            //        // Action
-            //        if (prev.Equals('z'))
-            //        {
+            switch (curr)
+            {
+                case 'I':
+                    val  = 1;
+                    break;
+                // Action
+                case 'V':
+                    if (prev.Equals('I'))
+                    {
                         // TODO: Update sum accordingly
-                        // sum += -1;
-            //        }
-            //        else
-            //        {
+                         val = 4;
+                    }
+                    else
+                    {
+                        val = 5;
+                    }
+                    break;
+                case 'X':
+                    if (prev.Equals('I'))
+                    {
+                        // TODO: Update sum accordingly
+                        val = 9;
+                    }
+                    else
+                    {
+                        val = 10;
+                    }
+                    break;
+                case 'L':
+                    if (prev.Equals('I'))
+                    {
+                        // TODO: Update sum accordingly
+                        val = 40;
+                    }
+                    else
+                    {
+                        val = 50;
+                    }
+                    break;
+                case 'C':
+                    if (prev.Equals('I'))
+                    {
+                        // TODO: Update sum accordingly
+                        val = 90;
+                    }
+                    else
+                    {
+                        val = 100;
+                    }
+                    break;
+                case 'D':
+                    if (prev.Equals('I'))
+                    {
+                        // TODO: Update sum accordingly
+                        val = 400;
+                    }
+                    else
+                    {
+                        val = 500;
+                    }
+                    break;
+                case 'M':
+                    if (prev.Equals('I'))
+                    {
+                        // TODO: Update sum accordingly
+                        val = 900;
+                    }
+                    else
+                    {
+                        val = 1000;
+                    }
+                    break;
 
-            //        }
-            //        break;
-            //    // ... // TODO: Finish the cases
-            //    default:
-            //        break;
-            //}
+                //    // ... // TODO: Finish the cases
+                default:
+                    break;
+            }
 
             return val;
         }
