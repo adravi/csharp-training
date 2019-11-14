@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Session5
+﻿namespace Session5
 {
-    class Triangle
+    class Triangle : IShape
     {
         public int Length { get; set; }
         public int Height { get; set; }

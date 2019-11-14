@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Session5
+﻿namespace Session5
 {
-    class Clircle
+    class Circle : IShape
     {
         public int Radius { get; set; }
-              
 
         public int Area
         {

@@ -2,9 +2,9 @@
 
 namespace Session5
 {
-    public class Square
+    public class Square : IShape
     {
-        public int Length { get; set; }
+        public int Length { get; }
 
         public int Area
         {
@@ -22,6 +22,12 @@ namespace Session5
                 return Area * Length;
             }
         }
+
         public string Color { get; set; }
+
+        public Square(int length)
+        {
+            Length = length;
+        }
     }
 }
